@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #0a0a0a;
+  --color-surface: #1a1a1a;
+  --color-primary: #f3f4f6;
+  --color-secondary: #9ca3af;
+  --color-accent: #ef4444;
+
+  --font-sans: "Inter", sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-primary antialiased;
+    font-family: var(--font-sans);
+  }
+}
+
+@utility glass {
+  @apply bg-white/5 backdrop-blur-md border border-white/10;
+}
+
+@utility btn-primary {
+  @apply px-6 py-3 bg-primary text-background font-bold rounded-full hover:bg-white transition-all duration-300;
+}
+
+@utility btn-secondary {
+  @apply px-6 py-3 border border-primary/30 text-primary font-bold rounded-full hover:bg-white/10 transition-all duration-300;
+}
+
+@utility outline-text {
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);
+  color: transparent;
+}
