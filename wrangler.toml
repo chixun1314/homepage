@@ -1,0 +1,3 @@
+#:schema node_modules/wrangler/config-schema.json
+name = "new-gravity-page"
+pages_build_output_dir = "dist"
