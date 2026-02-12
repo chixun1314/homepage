@@ -1,5 +1,6 @@
 import { Send, CheckCircle2, AlertCircle, Loader2 } from 'lucide-react';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const QuoteRequest = () => {
     const [status, setStatus] = useState('idle'); // 'idle', 'submitting', 'success', 'error'
@@ -25,7 +26,7 @@ const QuoteRequest = () => {
             } else {
                 setStatus('error');
             }
-        } catch (error) {
+        } catch {
             setStatus('error');
         }
     };
