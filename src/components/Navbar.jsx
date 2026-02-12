@@ -33,7 +33,7 @@ const Navbar = () => {
                                             ) : (
                                                 <User className="h-4 w-4" />
                                             )}
-                                            <span className="text-sm font-bold">{user?.name}님</span>
+                                            <span className="text-sm font-bold">{user?.email}</span>
                                         </div>
                                         <button
                                             onClick={logout}
@@ -83,8 +83,8 @@ const Navbar = () => {
                                             <User className="h-5 w-5" />
                                         )}
                                         <div className="flex flex-col">
-                                            <span className="text-sm font-bold">{user?.name}</span>
-                                            <span className="text-xs text-secondary">{user?.email}</span>
+                                            <span className="text-sm font-bold">{user?.email}</span>
+                                            <span className="text-xs text-secondary">{user?.name}님</span>
                                         </div>
                                     </div>
                                     <button

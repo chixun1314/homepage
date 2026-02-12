@@ -105,7 +105,7 @@ const ASService = () => {
                                 </div>
                             </div>
                             <form onSubmit={handleSubmit} className="space-y-6">
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                                     <div>
                                         <label className="block text-xs font-bold uppercase tracking-widest text-secondary mb-2">고객명 / 업체명</label>
                                         <input
@@ -125,6 +125,17 @@ const ASService = () => {
                                             required
                                             className="w-full bg-background/50 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-primary transition-colors"
                                             placeholder="010-0000-0000"
+                                        />
+                                    </div>
+                                    <div>
+                                        <label className="block text-xs font-bold uppercase tracking-widest text-secondary mb-2">이메일</label>
+                                        <input
+                                            name="email"
+                                            type="email"
+                                            required
+                                            defaultValue={user?.email}
+                                            className="w-full bg-background/50 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-primary transition-colors"
+                                            placeholder="email@example.com"
                                         />
                                     </div>
                                 </div>
