@@ -1,5 +1,6 @@
 import { FileText, Calculator, Truck, Send, CheckCircle2, AlertCircle, Loader2 } from 'lucide-react';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const ProductInquiry = () => {
     const [status, setStatus] = useState('idle');
@@ -154,9 +155,11 @@ const ProductInquiry = () => {
                                         type="checkbox"
                                         id="privacy"
                                         required
-                                        className="rounded border-white/10 bg-background/50 text-primary focus:ring-primary"
+                                        className="rounded border-white/10 bg-background/50 text-primary focus:ring-primary h-4 w-4"
                                     />
-                                    <label htmlFor="privacy">개인정보 수집 및 이용에 동의합니다.</label>
+                                    <label htmlFor="privacy" className="cursor-pointer">
+                                        <Link to="/privacy" className="text-primary hover:underline underline-offset-4">개인정보 수집</Link> 및 이용에 동의 합니다.
+                                    </label>
                                 </div>
 
                                 {status === 'error' && (

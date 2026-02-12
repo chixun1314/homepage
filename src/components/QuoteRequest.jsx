@@ -117,6 +117,19 @@ const QuoteRequest = () => {
                                     ></textarea>
                                 </div>
 
+                                <div className="flex items-center gap-2 text-sm text-secondary mb-4">
+                                    <input
+                                        name="privacy_consent"
+                                        type="checkbox"
+                                        id="privacy"
+                                        required
+                                        className="rounded border-white/10 bg-background/50 text-primary focus:ring-primary h-4 w-4"
+                                    />
+                                    <label htmlFor="privacy" className="cursor-pointer">
+                                        <Link to="/privacy" className="text-primary hover:underline underline-offset-4">개인정보 수집</Link> 및 이용에 동의 합니다.
+                                    </label>
+                                </div>
+
                                 {status === 'error' && (
                                     <div className="bg-red-500/10 border border-red-500/20 text-red-500 p-4 rounded-xl flex items-center gap-3 text-sm">
                                         <AlertCircle className="h-5 w-5 shrink-0" />

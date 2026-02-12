@@ -1,6 +1,7 @@
 import { Wrench, Clock, Shield, Send, CheckCircle2, AlertCircle, Loader2 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const ASService = () => {
     const [status, setStatus] = useState('idle');
@@ -114,6 +115,19 @@ const ASService = () => {
                                         className="w-full bg-background/50 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-primary transition-colors"
                                         placeholder="수리가 필요한 부분에 대해 상세히 적어주세요..."
                                     ></textarea>
+                                </div>
+
+                                <div className="flex items-center gap-2 text-sm text-secondary mb-4">
+                                    <input
+                                        name="privacy_consent"
+                                        type="checkbox"
+                                        id="privacy"
+                                        required
+                                        className="rounded border-white/10 bg-background/50 text-primary focus:ring-primary h-4 w-4"
+                                    />
+                                    <label htmlFor="privacy" className="cursor-pointer">
+                                        <Link to="/privacy" className="text-primary hover:underline underline-offset-4">개인정보 수집</Link> 및 이용에 동의 합니다.
+                                    </label>
                                 </div>
 
                                 {status === 'error' && (
