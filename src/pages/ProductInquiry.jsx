@@ -29,7 +29,7 @@ const ProductInquiry = () => {
             } else {
                 setStatus('error');
             }
-        } catch (error) {
+        } catch {
             setStatus('error');
         }
     };

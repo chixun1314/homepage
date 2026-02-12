@@ -5,14 +5,13 @@ import { useAuth } from '../context/AuthContext';
 
 const QuoteRequest = () => {
     const [status, setStatus] = useState('idle'); // 'idle', 'submitting', 'success', 'error'
-    const { isAuthenticated } = useAuth();
+    const { user, isAuthenticated } = useAuth();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (!isAuthenticated) return;
 
         setStatus('submitting');
-        // ... rest of handlesubmit
 
         const formData = new FormData(e.target);
 

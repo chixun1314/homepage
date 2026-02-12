@@ -1,5 +1,4 @@
 import { Wrench, Clock, Shield, Send, CheckCircle2, AlertCircle, Loader2, Lock } from 'lucide-react';
-import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
@@ -30,7 +29,7 @@ const ASService = () => {
             } else {
                 setStatus('error');
             }
-        } catch (error) {
+        } catch {
             setStatus('error');
         }
     };

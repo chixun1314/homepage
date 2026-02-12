@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import { Lock, ArrowRight } from 'lucide-react';
+import { Lock } from 'lucide-react';
 
 const AdminLogin = () => {
     const { loginWithGoogle, isAuthenticated } = useAuth();
