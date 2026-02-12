@@ -1,9 +1,11 @@
-import { Menu, X, Dumbbell, Send, LogIn } from 'lucide-react';
+import { Menu, X, Dumbbell, Send, LogIn, LogOut, User } from 'lucide-react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const { user, isAuthenticated, logout } = useAuth();
 
     return (
         <nav className="fixed w-full z-50 top-0 glass shadow-2xl">
@@ -21,10 +23,31 @@ const Navbar = () => {
                             <Link to="/product-inquiry" className="text-secondary hover:text-white px-3 py-2 text-sm font-medium transition-colors">제품 문의</Link>
                             <Link to="/agency" className="text-secondary hover:text-white px-3 py-2 text-sm font-medium transition-colors">에이전시</Link>
                             <Link to="/blog" className="text-secondary hover:text-white px-3 py-2 text-sm font-medium transition-colors">블로그</Link>
+
                             <div className="flex items-center gap-4 ml-4">
-                                <Link to="/admin" className="text-secondary hover:text-white flex items-center gap-1.5 text-sm font-medium transition-colors">
-                                    로그인 <LogIn className="h-4 w-4" />
-                                </Link>
+                                {isAuthenticated ? (
+                                    <div className="flex items-center gap-3">
+                                        <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10">
+                                            {user?.picture ? (
+                                                <img src={user.picture} alt={user.name} className="h-6 w-6 rounded-full" />
+                                            ) : (
+                                                <User className="h-4 w-4" />
+                                            )}
+                                            <span className="text-sm font-bold">{user?.name}님</span>
+                                        </div>
+                                        <button
+                                            onClick={logout}
+                                            className="text-secondary hover:text-accent transition-colors p-2"
+                                            title="로그아웃"
+                                        >
+                                            <LogOut className="h-4 w-4" />
+                                        </button>
+                                    </div>
+                                ) : (
+                                    <Link to="/admin" className="text-secondary hover:text-white flex items-center gap-1.5 text-sm font-medium transition-colors">
+                                        로그인 <LogIn className="h-4 w-4" />
+                                    </Link>
+                                )}
                                 <Link to="/as-service" className="btn-primary flex items-center gap-2">
                                     AS 신청 <Send className="h-3 w-3" />
                                 </Link>
@@ -49,10 +72,33 @@ const Navbar = () => {
                         <Link to="/product-inquiry" className="block px-3 py-2 text-base font-medium text-secondary" onClick={() => setIsOpen(false)}>제품 문의</Link>
                         <Link to="/agency" className="block px-3 py-2 text-base font-medium text-secondary" onClick={() => setIsOpen(false)}>에이전시</Link>
                         <Link to="/blog" className="block px-3 py-2 text-base font-medium text-secondary" onClick={() => setIsOpen(false)}>블로그</Link>
+
                         <div className="px-3 py-4 space-y-3">
-                            <Link to="/admin" className="w-full flex items-center justify-center gap-2 py-3 border border-white/10 rounded-xl text-secondary hover:text-white transition-colors" onClick={() => setIsOpen(false)}>
-                                <LogIn className="h-4 w-4" /> 로그인
-                            </Link>
+                            {isAuthenticated ? (
+                                <div className="flex flex-col gap-3">
+                                    <div className="flex items-center gap-3 px-4 py-3 bg-white/5 rounded-xl border border-white/10">
+                                        {user?.picture ? (
+                                            <img src={user.picture} alt={user.name} className="h-8 w-8 rounded-full" />
+                                        ) : (
+                                            <User className="h-5 w-5" />
+                                        )}
+                                        <div className="flex flex-col">
+                                            <span className="text-sm font-bold">{user?.name}</span>
+                                            <span className="text-xs text-secondary">{user?.email}</span>
+                                        </div>
+                                    </div>
+                                    <button
+                                        onClick={() => { logout(); setIsOpen(false); }}
+                                        className="w-full flex items-center justify-center gap-2 py-3 border border-red-500/20 text-red-500 rounded-xl hover:bg-red-500/10 transition-colors"
+                                    >
+                                        <LogOut className="h-4 w-4" /> 로그아웃
+                                    </button>
+                                </div>
+                            ) : (
+                                <Link to="/admin" className="w-full flex items-center justify-center gap-2 py-3 border border-white/10 rounded-xl text-secondary hover:text-white transition-colors" onClick={() => setIsOpen(false)}>
+                                    <LogIn className="h-4 w-4" /> 로그인
+                                </Link>
+                            )}
                             <Link to="/as-service" className="w-full btn-primary block text-center py-3" onClick={() => setIsOpen(false)}>AS 신청</Link>
                         </div>
                     </div>

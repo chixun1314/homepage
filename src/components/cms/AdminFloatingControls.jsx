@@ -4,11 +4,11 @@ import { LogOut, RotateCcw, Settings } from 'lucide-react';
 import { useState } from 'react';
 
 const AdminFloatingControls = () => {
-    const { isAdmin, logout } = useAuth();
+    const { user, logout } = useAuth();
     const { resetContent } = useContent();
     const [isExpanded, setIsExpanded] = useState(false);
 
-    if (!isAdmin) return null;
+    if (!user?.isAdmin) return null;
 
     return (
         <div className="fixed bottom-6 right-6 z-[100] flex flex-col items-end gap-3">
