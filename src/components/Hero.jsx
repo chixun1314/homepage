@@ -2,15 +2,16 @@ import { ArrowRight, ChevronRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import EditableText from './cms/EditableText';
+import { ShaderAnimation } from './ui/shader-animation';
 
 const Hero = () => {
     return (
         <div className="relative h-screen flex items-center justify-center overflow-hidden bg-background">
-            {/* Background patterns */}
-            <div className="absolute inset-0 z-0 opacity-10">
-                <div className="absolute top-0 -left-1/4 w-1/2 h-full bg-primary/20 skew-x-12 transform"></div>
-                <div className="absolute bottom-0 -right-1/4 w-1/2 h-full bg-primary/20 -skew-x-12 transform"></div>
-            </div>
+            {/* Shader Animation Background */}
+            <ShaderAnimation />
+
+            {/* Overlay to reduce shader brightness for better text readability */}
+            <div className="absolute inset-0 z-0 bg-black/30"></div>
 
             <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                 <motion.div
