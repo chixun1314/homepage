@@ -17,7 +17,7 @@ const posts = [
     },
     {
         id: 3,
-        title: "광고 영상에서 운동기구 '타격감' 살리는 촬영 기법",
+        title: "영상에서 운동기구 '타격감' 살리는 촬영 기법",
         date: "2026.01.12",
         category: "콘텐츠 제작",
         image: "https://images.unsplash.com/photo-1434596922112-19c563067271?auto=format&fit=crop&w=800&q=80"
@@ -33,7 +33,14 @@ const Blog = () => {
                         <h2 className="text-4xl font-black tracking-tight mb-4">인사이트</h2>
                         <p className="text-secondary max-w-md">데이터로 분석한 피트니스 마케팅의 최신 트렌드를 확인하세요.</p>
                     </div>
-                    <button className="hidden md:block text-sm font-bold border-b border-primary pb-1">전체 보기</button>
+                    <a
+                        href="https://blog.naver.com/teajini"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hidden md:block text-sm font-bold border-b border-primary pb-1 hover:text-primary transition-colors cursor-pointer"
+                    >
+                        전체 보기
+                    </a>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
